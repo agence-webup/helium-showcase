@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "adebe09c96235b729e9a1d1fdcebd107",
+    "content-hash": "4ae3aced8902026f5b4e74a42174ce8b",
     "packages": [
         {
             "name": "brick/math",
@@ -5457,6 +5457,16 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "webup/helium-ui",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agence-webup/helium-ui.git",
+                "reference": "main"
+            },
+            "type": "library"
         }
     ],
     "packages-dev": [
@@ -7879,7 +7889,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "webup/helium-ui": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
