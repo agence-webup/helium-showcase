@@ -6,8 +6,16 @@
     "license": "MIT",
     "repositories": [
         {
-            "type": "path",
-            "url": "./packages/helium-ui"
+            "type": "package",
+            "package": {
+                "name": "webup/helium-ui",
+                "version": "master",
+                "source": {
+                    "url": "git@github.com:agence-webup/helium-ui.git",
+                    "type": "git",
+                    "reference": "main"
+                }
+            }
         }
     ],
     "require": {
@@ -16,7 +24,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "webup/helium-ui": "dev-main"
+        "webup/helium-ui": "dev-master"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
