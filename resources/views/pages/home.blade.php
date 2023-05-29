@@ -11,6 +11,8 @@
 
 <body class="bg-slate-200">
     <h1 class="text-4xl text-center text-slate-800">Helium Showcase</h1>
+
+    <x-helium-ui::wip />
 </body>
 
 </html>
