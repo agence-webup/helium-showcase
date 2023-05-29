@@ -11,7 +11,7 @@
                 "name": "webup/helium-ui",
                 "version": "master",
                 "source": {
-                    "url": "https://github.com/agence-webup/helium-ui.git",
+                    "url": "git@github.com:agence-webup/helium-ui.git",
                     "type": "git",
                     "reference": "main"
                 }
