@@ -4,7 +4,7 @@ import laravel from 'laravel-vite-plugin';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: ['packages/helium-ui/resources/css/app.css', '/packages/helium-ui/resources/js/app.js'],
             refresh: true,
         }),
     ],
