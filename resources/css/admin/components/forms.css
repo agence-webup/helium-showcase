@@ -1,0 +1,43 @@
+@layer components {
+
+  input[type="text"],
+  input[type="search"] {
+    @apply rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+  }
+
+  input[type="number"],
+  input[type="password"],
+  input[type="email"],
+  textarea {
+    @apply block rounded-md border-opacity-100 border-gray-300;
+  }
+
+  select {
+    @apply rounded-md border-opacity-100 border-gray-300;
+  }
+
+  .f-group label,
+  label {
+    @apply font-medium mb-1.5 block;
+  }
+
+  .f-group .f-radiobox label {
+    @apply inline-block;
+  }
+
+  .f-group {
+    @apply mb-5;
+  }
+
+  .f-group:last-of-type {
+    @apply mb-0;
+  }
+
+  .f-required {
+    @apply text-red-600;
+  }
+
+  .ferror-message {
+    @apply text-red-600 mt-1;
+  }
+}
