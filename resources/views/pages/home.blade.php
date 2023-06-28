@@ -26,7 +26,7 @@
         <x-helium-ui::stats title="Titre 3" value="Valeur 3" />
         <x-helium-ui::stats title="Titre 4" value="Valeur 4" />
     </div>
-    <div class="grid grid-cols-2 gap-5">
+    <div class="grid grid-cols-3 gap-5">
         <x-helium-ui::box>
             <x-slot:title>Tags</x-slot:title>
             <x-helium-ui::tag label="gray" modifier="gray" />
@@ -41,19 +41,28 @@
         </x-helium-ui::box>
         <x-helium-ui::box>
             <x-slot:title>
-                Test
+                Dots
             </x-slot:title>
-            Ici un datatable
+            <x-helium-ui::dot modifier="gray" />
+            <x-helium-ui::dot modifier="red" />
+            <x-helium-ui::dot modifier="yellow" />
+            <x-helium-ui::dot modifier="green" />
+            <x-helium-ui::dot modifier="blue" />
+            <x-helium-ui::dot modifier="indigo" />
+            <x-helium-ui::dot modifier="purple" />
+            <x-helium-ui::dot modifier="pink" />
+            <x-helium-ui::dot modifier="orange" />
+        </x-helium-ui::box>
+        <x-helium-ui::box>
+            <x-slot:title>Notifications</x-slot:title>
+            <x-helium-ui::button label="Success" modifier="ghost" onclick="Helium.notif.success('Wubalubadubdub')" />
+            <x-helium-ui::button label="Error" modifier="ghost" onclick="Helium.notif.error('Wubalubadubdub')" />
+            <x-helium-ui::button label="Warning" modifier="ghost" onclick="Helium.notif.open({type:'warning', message: 'Wubalubadubdub' })" />
+            <x-helium-ui::button label="Info" modifier="ghost" onclick="Helium.notif.open({type:'info', message: 'Wubalubadubdub' })" />
         </x-helium-ui::box>
     </div>
 
-    <x-helium-ui::box>
-        <x-slot:title>Notifications</x-slot:title>
-        <x-helium-ui::button label="Success" modifier="ghost" onclick="Helium.notif.success('Wubalubadubdub')" />
-        <x-helium-ui::button label="Error" modifier="ghost" onclick="Helium.notif.error('Wubalubadubdub')" />
-        <x-helium-ui::button label="Warning" modifier="ghost" onclick="Helium.notif.open({type:'warning', message: 'Wubalubadubdub' })" />
-        <x-helium-ui::button label="Info" modifier="ghost" onclick="Helium.notif.open({type:'info', message: 'Wubalubadubdub' })" />
-    </x-helium-ui::box>
+
 
     <x-helium-ui::box>
         <x-slot:title>Forms</x-slot:title>
