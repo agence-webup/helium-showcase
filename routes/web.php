@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', fn () => view('pages.home'));
+
+Route::post('/test', function (Request $request) {
+
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email',
+        'firstname' => 'required',
+        'checkbox[]' => 'accepted',
+        'cgv' => 'accepted'
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/')
+            ->withErrors($validator)
+            ->withInput();
+    }
+});

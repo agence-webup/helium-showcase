@@ -66,25 +66,36 @@
 
     <x-helium-ui::box>
         <x-slot:title>Forms</x-slot:title>
-        <div class="f-group">
-            <label for="lastname" class="">Label 1</label>
-            <input type="text" id="lastname" name="lastname" class="">
-        </div>
+        <form method="POST" action="/test">
+            @csrf
+            <div class="space-y-4">
+                <x-helium-ui::form.input name="firstname" label="Firstname" type="text" class="max-w-md" />
+                <x-helium-ui::form.input name="email" label="Email" type="email" info="Additional information on this field." class="max-w-md" />
+            </div>
 
-        <div class="f-group">
-            <label for="label_2" class="">Label 2</label>
-            <input type="text" id="lastname" name="lastname" class="">
-        </div>
+            <div class="mt-3 mb-3 grid grid-cols-3 gap-5">
+                <x-helium-ui::form.input name="input_1" label="Password" type="password" />
+                <x-helium-ui::form.input name="input_2" label="Number" type="number" />
+                <x-helium-ui::form.input name="input_3" label="Date" type="date" />
+            </div>
 
-        <label class="mt-3 flex cursor-pointer items-center">
-            <input type="checkbox" name="" checked="">
-            <span class="ml-2">XL</span>
-        </label>
+            <div class="mt-3 mb-3">
+                <x-helium-ui::form.checkbox name="checkbox">
+                    <x-helium-ui::form.checkbox.item name="checkbox[]" value="checkbox_1" label="label 1" />
+                    <x-helium-ui::form.checkbox.item name="checkbox[]" value="checkbox_2" label="label 2" />
+                    <x-helium-ui::form.checkbox.item name="checkbox[]" value="checkbox_3" label="label 3" />
+                    <x-helium-ui::form.checkbox.item name="checkbox[]" value="checkbox_4" label="label 4" />
+                </x-helium-ui::form.checkbox>
+            </div>
+
+            <div>
+                <x-helium-ui::button label="Test errors" type="submit" />
+            </div>
+        </form>
 
     </x-helium-ui::box>
 
     <x-helium-ui::box>
         <x-slot:title>Datatable</x-slot:title>
-
     </x-helium-ui::box>
 @endsection
