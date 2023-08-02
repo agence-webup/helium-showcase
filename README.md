@@ -3,13 +3,15 @@
 
 ## Getting started
 
-1. git clone git@github.com:agence-webup/helium-showcase.git --recurse-submodules
-2. cp .env.example .env
-3. docker run --rm --interactive --tty --volume $PWD:/app composer install
-4. sail up -d
-5. sail artisan key:generate
-5. sail npm i
-6. sail npm run dev
+```bash
+git clone git@github.com:agence-webup/helium-showcase.git --recurse-submodules
+cp .env.example .env
+docker run --rm --interactive --tty --volume $PWD:/app composer install
+sail up -d
+sail artisan key:generate
+sail npm i
+sail npm run dev
+```
 
 ## Dependencies
 
