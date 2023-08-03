@@ -71,16 +71,25 @@
             <div class="space-y-4">
                 <x-helium-ui::form.input name="firstname" label="Firstname" type="text" class="max-w-md" />
                 <x-helium-ui::form.input name="email" label="Email" type="email" info="Additional information on this field." class="max-w-md" />
+                <x-helium-ui::form.textarea name="description" label="Description" info="Additional information on this field." class="max-w-lg" rows="5" />
             </div>
 
-            <div class="mt-3 mb-3 grid grid-cols-3 gap-5">
+            <div class="mb-3 mt-3 grid grid-cols-3 gap-5">
                 <x-helium-ui::form.input name="input_1" label="Password" type="password" />
                 <x-helium-ui::form.input name="input_2" label="Number" type="number" />
                 <x-helium-ui::form.input name="input_3" label="Date" type="date" />
             </div>
 
-            <div class="mt-3 mb-3">
-                <x-helium-ui::form.checkbox name="checkbox">
+            <div class="flex max-w-md items-end gap-4">
+                <x-helium-ui::form.input name="input_4" label="Start" type="date" class="h-10" />
+                <x-helium-ui::form.input name="input_5" label="End" type="date" class="h-10" />
+                <x-helium-ui::button label="Delete" icon="tabler-trash" modifier="danger" class="h-10" />
+            </div>
+
+            <x-helium-ui::divider />
+
+            <div class="mb-5 mt-3">
+                <x-helium-ui::form.checkbox name="checkbox" label="Checkboxes">
                     <x-helium-ui::form.checkbox.item name="checkbox[]" value="checkbox_1" label="label 1" />
                     <x-helium-ui::form.checkbox.item name="checkbox[]" value="checkbox_2" label="label 2" />
                     <x-helium-ui::form.checkbox.item name="checkbox[]" value="checkbox_3" label="label 3" />

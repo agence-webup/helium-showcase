@@ -22,6 +22,7 @@ Route::post('/test', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'email' => 'required|email',
         'firstname' => 'required',
+        'description' => 'required',
         'checkbox[]' => 'accepted',
         'cgv' => 'accepted'
     ]);
