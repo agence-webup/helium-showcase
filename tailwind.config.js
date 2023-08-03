@@ -5,8 +5,8 @@ export default {
     "./resources/**/*.js",
     "./app/Http/Livewire/**/*.php",
     "./packages/helium-ui/resources/**/*.blade.php",
-    "./packages/laravel-helium-core/resources/**/*.blade.php",
-    "./packages/laravel-helium-core/src/**/*.php" // TODO: create a file with all CSS constants for this
+    "./packages/helium-core/resources/**/*.blade.php",
+    "./packages/helium-core/src/**/*.php" // TODO: create a file with all CSS constants for this
   ],
   theme: {
     extend: {},
