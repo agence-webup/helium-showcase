@@ -115,7 +115,6 @@
 
     <x-helium-ui::box>
         <x-slot:title>Datatable</x-slot:title>
-
-        <livewire:category-datatable sharedKey="category-datatable" />
+        <livewire:category-datatable sharedKey="category-datatable" paginationSize=10 />
     </x-helium-ui::box>
 @endsection

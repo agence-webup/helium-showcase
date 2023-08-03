@@ -17,7 +17,7 @@ class CategoryDatatable extends Datatable
 
     public function link($category)
     {
-        return '#';
+        return '#' . $category->id;
     }
 
     public function columns()
@@ -26,12 +26,23 @@ class CategoryDatatable extends Datatable
             Column::name('name')
                 ->label('Name')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->alignLeft(),
+
+            Column::name('created_at')
+                ->label('Créée le')
+                ->sortable()
+                ->searchable()
+                ->alignCenter()
+                ->format(function ($value) {
+                    return $value->format('d/m/Y');
+                }),
 
             Column::name('status')
                 ->label('Status')
                 ->sortable()
                 ->searchable()
+                ->alignCenter()
                 ->format(function ($value) {
                     return new HtmlString(Blade::render(
                         '<x-helium-ui::tag label="{{ $label }}" modifier="{{ $color }}" />',
@@ -46,16 +57,15 @@ class CategoryDatatable extends Datatable
                 ->label('highlighted')
                 ->sortable()
                 ->searchable()
+                ->alignCenter()
                 ->format(function ($value) {
                     if ($value) {
                         return new HtmlString(Blade::render(
-                            '<x-helium-ui::tag label="✔" modifier="green" />',
+                            '<x-tabler-star class="w-5 text-yellow-600 inline" />',
                         ));
                     }
-                    return new HtmlString(Blade::render(
-                        '<x-helium-ui::tag label="✘" modifier="red" />',
 
-                    ));
+                    return '';
                 }),
         ];
     }

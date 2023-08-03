@@ -20,6 +20,7 @@ class CategoryFactory extends Factory
             'name' => $this->faker->word,
             'status' => $this->faker->randomElement(['published', 'draft', 'deleted']),
             'highlighted' => $this->faker->boolean,
+            'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
     }
 }
