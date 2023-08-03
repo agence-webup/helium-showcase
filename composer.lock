@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee038900774d5120d091475886dacc58",
+    "content-hash": "8caf8b59ba471ad3ed059188c6134e16",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -5832,6 +5832,92 @@
             "time": "2022-06-03T18:03:27+00:00"
         },
         {
+            "name": "webup/helium-core",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./packages/helium-core",
+                "reference": "5db4c24a985bb99d513a348c3d4d92124a0f8d69"
+            },
+            "require": {
+                "illuminate/contracts": "^10.0",
+                "livewire/livewire": "^2.12",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.14.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Webup\\HeliumCore\\HeliumCoreServiceProvider"
+                    ],
+                    "aliases": {
+                        "HeliumCore": "Webup\\HeliumCore\\Facades\\HeliumCore"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webup\\HeliumCore\\": "src/",
+                    "Webup\\HeliumCore\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webup\\HeliumCore\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "post-autoload-dump": [
+                    "@php ./vendor/bin/testbench package:discover --ansi"
+                ],
+                "analyse": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "test-coverage": [
+                    "vendor/bin/pest --coverage"
+                ],
+                "format": [
+                    "vendor/bin/pint"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Agence Webup",
+                    "email": "contact@agence-webup.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Admin made with Helium UI",
+            "homepage": "https://github.com/webup/helium-core",
+            "keywords": [
+                "helium-core",
+                "laravel",
+                "webup"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "webup/helium-ui",
             "version": "dev-main",
             "dist": {
@@ -5910,92 +5996,6 @@
             "keywords": [
                 "helium-ui",
                 "laravel",
-                "webup"
-            ],
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
-            "name": "webup/laravel-helium-core",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "./packages/laravel-helium-core",
-                "reference": "96bba60a48c5f6952d145452cb758627fc24b3b7"
-            },
-            "require": {
-                "illuminate/contracts": "^10.0",
-                "livewire/livewire": "^2.12",
-                "php": "^8.1",
-                "spatie/laravel-package-tools": "^1.14.0"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.0",
-                "nunomaduro/collision": "^7.9",
-                "nunomaduro/larastan": "^2.0.1",
-                "orchestra/testbench": "^8.0",
-                "pestphp/pest": "^2.0",
-                "pestphp/pest-plugin-arch": "^2.0",
-                "pestphp/pest-plugin-laravel": "^2.0",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Webup\\LaravelHeliumCore\\LaravelHeliumCoreServiceProvider"
-                    ],
-                    "aliases": {
-                        "LaravelHeliumCore": "Webup\\LaravelHeliumCore\\Facades\\LaravelHeliumCore"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webup\\LaravelHeliumCore\\": "src/",
-                    "Webup\\LaravelHeliumCore\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Webup\\LaravelHeliumCore\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "post-autoload-dump": [
-                    "@php ./vendor/bin/testbench package:discover --ansi"
-                ],
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ],
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "test-coverage": [
-                    "vendor/bin/pest --coverage"
-                ],
-                "format": [
-                    "vendor/bin/pint"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Agence Webup",
-                    "email": "contact@agence-webup.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel Admin made with Helium UI",
-            "homepage": "https://github.com/webup/laravel-helium-core",
-            "keywords": [
-                "laravel",
-                "laravel-helium-core",
                 "webup"
             ],
             "transport-options": {
@@ -8438,7 +8438,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "webup/helium-ui": 20,
-        "webup/laravel-helium-core": 20
+        "webup/helium-core": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

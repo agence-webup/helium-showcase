@@ -14,7 +14,7 @@
         },
         {
             "type": "path",
-            "url": "./packages/laravel-helium-core"
+            "url": "./packages/helium-core"
         }
     ],
     "require": {
@@ -25,7 +25,7 @@
         "laravel/tinker": "^2.8",
         "ryangjchandler/blade-tabler-icons": "^2.0",
         "webup/helium-ui": "dev-main",
-        "webup/laravel-helium-core": "dev-main"
+        "webup/helium-core": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

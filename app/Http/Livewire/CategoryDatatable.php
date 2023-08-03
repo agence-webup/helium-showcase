@@ -5,8 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\Category;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\HtmlString;
-use Webup\LaravelHeliumCore\Datatable\Column;
-use Webup\LaravelHeliumCore\Datatable\Datatable;
+use Webup\HeliumCore\Datatable\Column;
+use Webup\HeliumCore\Datatable\Datatable;
 
 class CategoryDatatable extends Datatable
 {
