@@ -1,4 +1,13 @@
 @extends('helium-ui::layout.admin')
+
+@section('css')
+    @livewireStyles
+@endsection
+
+@section('js')
+    @livewireScripts
+@endsection
+
 @section('topbar')
     <x-helium-ui::layout.topbar>
         <x-slot:title>Ici un titre</x-slot:title>
@@ -106,5 +115,7 @@
 
     <x-helium-ui::box>
         <x-slot:title>Datatable</x-slot:title>
+
+        <livewire:category-datatable sharedKey="category-datatable" />
     </x-helium-ui::box>
 @endsection
