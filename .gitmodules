@@ -1,3 +1,6 @@
 [submodule "packages/helium-ui"]
 	path = packages/helium-ui
 	url = git@github.com:agence-webup/helium-ui.git
+[submodule "packages/laravel-helium-core"]
+	path = packages/laravel-helium-core
+	url = git@github.com:agence-webup/laravel-helium-core.git

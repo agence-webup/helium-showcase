@@ -2,12 +2,19 @@
     "name": "webup/helium-showcase",
     "type": "project",
     "description": "Helium Showcase",
-    "keywords": ["helium", "laravel"],
+    "keywords": [
+        "helium",
+        "laravel"
+    ],
     "license": "MIT",
     "repositories": [
         {
             "type": "path",
             "url": "./packages/helium-ui"
+        },
+        {
+            "type": "path",
+            "url": "./packages/laravel-helium-core"
         }
     ],
     "require": {
@@ -17,7 +24,8 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "ryangjchandler/blade-tabler-icons": "^2.0",
-        "webup/helium-ui": "dev-main"
+        "webup/helium-ui": "dev-main",
+        "webup/laravel-helium-core": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
