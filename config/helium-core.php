@@ -10,7 +10,7 @@ return [
      * For example, a controller will be located in `App\Http\Controllers\$namespace`
      * ------------------------------------------------------------
      */
-    'namespace' => 'Helium',
+    'namespace' => 'Admin',
 
     /**
      * ------------------------------------------------------------
@@ -20,7 +20,7 @@ return [
      * For example, a js file will be located in `resources/js/$resources/`
      * ------------------------------------------------------------
      */
-    'resources' => 'helium',
+    'resources' => 'admin',
 
     'routing' => [
         /**
@@ -30,7 +30,7 @@ return [
          * containing helium routes. For example, `routes/admin.php`.
          * ------------------------------------------------------------
          */
-        'filename' => 'helium',
+        'filename' => 'admin',
 
         /**
          * ------------------------------------------------------------
@@ -40,7 +40,7 @@ return [
          * For example, `route('$as.about') == '/helium/about'`
          * ------------------------------------------------------------
          */
-        'as' => 'helium::',
+        'as' => 'admin::',
 
         /**
          * ------------------------------------------------------------
@@ -50,16 +50,7 @@ return [
          * For example, `route('helium.about') == '/$prefix/about'`
          * ------------------------------------------------------------
          */
-        'prefix' => env('HELIUM_ROUTING_PREFIX', 'helium'),
-
-        /**
-         * ------------------------------------------------------------
-         *
-         * @config helium-core.routing.middleware determines the middlewares
-         * used by all the routes published by the package.
-         * ------------------------------------------------------------
-         */
-        'middleware' => ['web'],
+        'prefix' => env('HELIUM_ROUTING_PREFIX', 'admin'),
     ],
 
     'features' => [
@@ -71,7 +62,7 @@ return [
              * name of the model.
              * ------------------------------------------------------------
              */
-            'model_name' => 'HeliumUser',
+            'model_name' => 'AdminUser',
 
             /**
              * ------------------------------------------------------------
@@ -81,7 +72,7 @@ return [
              * and determines the "as" (with an appended dot) and "prefix" of the routes.
              * ------------------------------------------------------------
              */
-            'table_name' => 'helium_user',
+            'table_name' => 'admin_users',
 
             /**
              * ------------------------------------------------------------
@@ -90,7 +81,7 @@ return [
              * the name of the controller.
              * ------------------------------------------------------------
              */
-            'controller_name' => 'HeliumUserController',
+            'controller_name' => 'AdminUserController',
 
             /**
              * ------------------------------------------------------------
@@ -100,7 +91,7 @@ return [
              * be used to encapsulate routes that require authentication.
              * ------------------------------------------------------------
              */
-            'guard_name' => 'helium',
+            'guard_name' => 'admin',
         ],
     ],
 ];
