@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Category;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\HtmlString;
 use Webup\HeliumCore\Datatable\Column;
@@ -27,6 +28,23 @@ class CategoryDatatable extends Datatable
     {
         return '#'.$category->id;
     }
+
+    // public function addCustomFilters($customFilters)
+    // {
+    //     $this->query
+    //         ->when($minCreatedAt = Arr::get($customFilters, 'minCreatedAt'), function ($query) use ($minCreatedAt) {
+    //             return $query->where('created_at', '>=', $minCreatedAt);
+    //         })
+    //         ->when($maxCreatedAt = Arr::get($customFilters, 'maxCreatedAt'), function ($query) use ($maxCreatedAt) {
+    //             return $query->where('created_at', '<=', $maxCreatedAt);
+    //         })
+    //         ->when($minHighestProductPrice = Arr::get($customFilters, 'minHighestProductPrice'), function ($query) use ($minHighestProductPrice) {
+    //             return $query->having('products_max_price', '>=', $minHighestProductPrice);
+    //         })
+    //         ->when($maxHighestProductPrice = Arr::get($customFilters, 'maxHighestProductPrice'), function ($query) use ($maxHighestProductPrice) {
+    //             return $query->having('products_max_price', '<=', $maxHighestProductPrice);
+    //         });
+    // }
 
     public function columns()
     {
@@ -53,22 +71,28 @@ class CategoryDatatable extends Datatable
                 }),
 
             Column::add('products_sum_price')
-                ->label('Total des produits (avec details en tooltip)')
+                ->label('Total des produits (+ details en tooltip)')
                 ->sortable()
                 ->columnClasses(['w-44'])
                 ->classes(['text-right'])
                 ->format(function ($value, $category) {
-                    $maxPrice = $value > 0 ? number_format($value, 2, ',', ' ').' €' : '-';
-
                     $productPrices = $category->products->pluck('price')->map((function ($price) {
                         return number_format($price, 2, ',', ' ').' €';
                     }))->join(' + ');
 
                     return new HtmlString(Blade::render(
-                        '<span title="{{ $productPrices }}">{{ $value }}</span>',
+                        '<div class="inline-flex ">
+                            <span title="{{ $productPrices }}">{{ $value }}</span>
+                            @if($value > 0)
+                                <div  title="{{ $productPrices }}" class="w-5 ml-2 text-gray-400" >
+                                    <x-tabler-info-square-rounded/>
+                                </div>
+                            @endif
+                        </div>',
                         [
                             'productPrices' => $productPrices,
-                            'value' => $maxPrice,
+                            'value' => $value > 0 ? number_format($value, 2, ',', ' ').' €' : '-',
+
                         ]
                     ));
 

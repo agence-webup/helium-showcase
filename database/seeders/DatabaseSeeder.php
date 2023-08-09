@@ -12,6 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $productsNumber = 1000;
+        $categoriesNumber = 200;
+        $maxProductsPerCategory = 25;
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
@@ -19,15 +23,16 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $products = \App\Models\Product::factory(500)->create();
+        $products = \App\Models\Product::factory($productsNumber)->create();
 
         //Use loop bescause we can't use factory(number) with a random hasAttached() number
-        for ($i = 0; $i < 200; $i++) {
+        for ($i = 0; $i < $categoriesNumber; $i++) {
+            $nb = 0;
             \App\Models\Category::factory()
                 ->hasAttached(
-                    $products->random(rand(0, 10)),
-                    function ($category) {
-                        return ['position' => $category->products()->count() + 1];
+                    $products->random(rand(0, $maxProductsPerCategory)),
+                    function ($category) use (&$nb) {
+                        return ['position' => $nb++];
                     }
                 )->create();
         }
