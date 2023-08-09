@@ -14,4 +14,22 @@ class Category extends Model
         'status' => CategoryStatus::class,
         'highlighted' => 'boolean',
     ];
+
+    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Product::class)
+            ->withPivot('position')
+            ->orderBy('position')
+            ->withTrashed();
+    }
+
+    public function availableProducts(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->products()->withoutTrashed();
+    }
+
+    public function trashedProducts(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->products()->onlyTrashed();
+    }
 }

@@ -17,21 +17,53 @@ class CategoryDatatable extends Datatable
 
     public function link($category)
     {
-        return '#' . $category->id;
+        return '#'.$category->id;
     }
 
     public function columns()
     {
         return [
+            //Hidden collumn
+            Column::name('availableProducts.id:count as available_products_count')->hidden(),
+            Column::name('trashedProducts.id:count as trashed_products_count')->hidden(),
+
             Column::name('name')
                 ->label('Name')
                 ->sortable()
                 ->searchable()
                 ->alignLeft(),
 
+            Column::name('products.id:count')
+                ->label('Nb Produits Total')
+                ->sortable()
+                ->columnClasses(['w-6'])
+                ->classes(['text-right']),
+
+            Column::add('product_repartition')
+                ->columnClasses(['w-6'])
+                ->classes(['text-right'])
+                ->label('Répartition produits (dispos / supprimés)')
+                ->format(function ($value, $category) {
+                    return $category->available_products_count.' / '.$category->trashed_products_count;
+                }),
+
+            Column::name('products.price:max')
+                ->sortable()
+                ->columnClasses(['w-44'])
+                ->alignRight()
+                ->label('Prix Produit le + chère')
+                ->format(function ($value) {
+                    if ($value > 0) {
+                        return number_format($value, 2, ',', ' ').' €';
+                    }
+
+                    return '-';
+                }),
+
             Column::name('created_at')
                 ->label('Créée le')
                 ->sortable()
+                ->columnClasses(['w-44'])
                 ->searchable()
                 ->alignCenter()
                 ->format(function ($value) {
@@ -41,6 +73,7 @@ class CategoryDatatable extends Datatable
             Column::name('status')
                 ->label('Status')
                 ->sortable()
+                ->columnClasses(['w-24'])
                 ->searchable()
                 ->alignCenter()
                 ->format(function ($value) {
@@ -56,6 +89,7 @@ class CategoryDatatable extends Datatable
             Column::name('highlighted')
                 ->label('highlighted')
                 ->sortable()
+                ->columnClasses(['w-24'])
                 ->searchable()
                 ->alignCenter()
                 ->format(function ($value) {

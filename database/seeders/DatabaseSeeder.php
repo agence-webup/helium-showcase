@@ -19,6 +19,18 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        \App\Models\Category::factory(200)->create();
+        $products = \App\Models\Product::factory(500)->create();
+
+        //Use loop bescause we can't use factory(number) with a random hasAttached() number
+        for ($i = 0; $i < 200; $i++) {
+            \App\Models\Category::factory()
+                ->hasAttached(
+                    $products->random(rand(0, 10)),
+                    function ($category) {
+                        return ['position' => $category->products()->count() + 1];
+                    }
+                )->create();
+        }
+
     }
 }
