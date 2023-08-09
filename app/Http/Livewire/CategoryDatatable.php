@@ -13,12 +13,13 @@ class CategoryDatatable extends Datatable
     public function baseQuery()
     {
         return Category::query()
+            ->with(['products'])
             ->withCount([
                 'products',
                 'availableProducts',
                 'trashedProducts',
             ])
-            ->withMax('products', 'price')
+            ->withSum('products', 'price')
             ->withMax('products', 'price');
     }
 
@@ -30,7 +31,7 @@ class CategoryDatatable extends Datatable
     public function columns()
     {
         return [
-            Column::name('name')
+            Column::select('name')
                 ->label('Name')
                 ->sortable()
                 ->searchable()
@@ -45,9 +46,32 @@ class CategoryDatatable extends Datatable
             Column::add('product_repartition')
                 ->columnClasses(['w-6'])
                 ->classes(['text-right'])
+                ->sortable('available_products_count')
                 ->label('Répartition produits (dispos / supprimés)')
                 ->format(function ($value, $category) {
                     return $category->available_products_count.' / '.$category->trashed_products_count;
+                }),
+
+            Column::add('products_sum_price')
+                ->label('Total des produits (avec details en tooltip)')
+                ->sortable()
+                ->columnClasses(['w-44'])
+                ->classes(['text-right'])
+                ->format(function ($value, $category) {
+                    $maxPrice = $value > 0 ? number_format($value, 2, ',', ' ').' €' : '-';
+
+                    $productPrices = $category->products->pluck('price')->map((function ($price) {
+                        return number_format($price, 2, ',', ' ').' €';
+                    }))->join(' + ');
+
+                    return new HtmlString(Blade::render(
+                        '<span title="{{ $productPrices }}">{{ $value }}</span>',
+                        [
+                            'productPrices' => $productPrices,
+                            'value' => $maxPrice,
+                        ]
+                    ));
+
                 }),
 
             Column::add('products_max_price')
@@ -63,20 +87,22 @@ class CategoryDatatable extends Datatable
                     return '-';
                 }),
 
-            Column::name('created_at')
+            Column::select('created_at')
                 ->label('Créée le')
                 ->sortable()
                 ->columnClasses(['w-44'])
                 ->alignCenter()
+
                 ->format(function ($value) {
                     return $value->format('d/m/Y');
                 }),
 
-            Column::name('status')
+            Column::select('status')
                 ->label('Status')
                 ->sortable()
                 ->columnClasses(['w-24'])
                 ->alignCenter()
+
                 ->format(function ($value) {
                     return new HtmlString(Blade::render(
                         '<x-helium-ui::tag label="{{ $label }}" modifier="{{ $color }}" />',
@@ -87,7 +113,7 @@ class CategoryDatatable extends Datatable
                     ));
                 }),
 
-            Column::name('highlighted')
+            Column::select('highlighted')
                 ->label('Mise en avant')
                 ->sortable()
                 ->columnClasses(['w-24'])
