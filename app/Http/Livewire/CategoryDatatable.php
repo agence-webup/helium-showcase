@@ -11,6 +11,10 @@ use Webup\HeliumCore\Datatable\Datatable;
 
 class CategoryDatatable extends Datatable
 {
+    public array $clickableProperties = [
+        'id',
+    ];
+
     public function baseQuery()
     {
         return Category::query()
@@ -24,9 +28,9 @@ class CategoryDatatable extends Datatable
             ->withMax('products', 'price');
     }
 
-    public function link($category)
+    public function onRowClick($model)
     {
-        return '#'.$category->id;
+        return redirect()->to('#'.$model->id);
     }
 
     // public function addCustomFilters($customFilters)

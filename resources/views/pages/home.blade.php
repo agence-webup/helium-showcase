@@ -70,8 +70,10 @@
                 <x-slot:title>Notifications</x-slot:title>
                 <x-helium-ui::button label="Success" modifier="ghost" onclick="Helium.notif.success('Wubalubadubdub')" />
                 <x-helium-ui::button label="Error" modifier="ghost" onclick="Helium.notif.error('Wubalubadubdub')" />
-                <x-helium-ui::button label="Warning" modifier="ghost" onclick="Helium.notif.open({type:'warning', message: 'Wubalubadubdub' })" />
-                <x-helium-ui::button label="Info" modifier="ghost" onclick="Helium.notif.open({type:'info', message: 'Wubalubadubdub' })" />
+                <x-helium-ui::button label="Warning" modifier="ghost"
+                    onclick="Helium.notif.open({type:'warning', message: 'Wubalubadubdub' })" />
+                <x-helium-ui::button label="Info" modifier="ghost"
+                    onclick="Helium.notif.open({type:'info', message: 'Wubalubadubdub' })" />
             </x-helium-ui::box>
         </div>
     </div>
@@ -82,8 +84,10 @@
                 @csrf
                 <div class="space-y-4">
                     <x-helium-ui::form.input name="firstname" label="Firstname" type="text" class="max-w-md" />
-                    <x-helium-ui::form.input name="email" label="Email" type="email" info="Additional information on this field." class="max-w-md" />
-                    <x-helium-ui::form.textarea name="description" label="Description" info="Additional information on this field." class="max-w-lg" rows="5" />
+                    <x-helium-ui::form.input name="email" label="Email" type="email"
+                        info="Additional information on this field." class="max-w-md" />
+                    <x-helium-ui::form.textarea name="description" label="Description"
+                        info="Additional information on this field." class="max-w-lg" rows="5" />
                 </div>
 
                 <div class="mb-3 mt-3 grid grid-cols-3 gap-5">
@@ -119,7 +123,7 @@
     <div data-helium-filter-target="ui4">
         <x-helium-ui::box>
             <x-slot:title>Datatable</x-slot:title>
-            <livewire:category-datatable sharedKey="category-datatable" paginationSize=10 />
+            <livewire:category-datatable sharedKey="category-datatable" paginationSize=10 queryPrefix="c" />
             {{-- <livewire:category-sidebar sharedKey="category-datatable" /> --}}
         </x-helium-ui::box>
     </div>
