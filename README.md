@@ -4,7 +4,15 @@
 ## Getting started
 
 ```bash
-git clone git@github.com:agence-webup/helium-showcase.git --recurse-submodules
+# clone this repo
+git clone git@github.com:agence-webup/helium-showcase.git
+
+# clone the dependency repos
+cd helium-showcase/packages
+git clone git@github.com:agence-webup/helium-ui.git
+git clone git@github.com:agence-webup/helium-core.git
+
+# install & startup
 cp .env.example .env
 docker run --rm --interactive --tty --volume $PWD:/app composer install
 sail up -d
