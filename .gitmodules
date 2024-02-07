@@ -1,6 +1,0 @@
-[submodule "packages/helium-ui"]
-	path = packages/helium-ui
-	url = git@github.com:agence-webup/helium-ui.git
-[submodule "packages/helium-core"]
-	path = packages/helium-core
-	url = git@github.com:agence-webup/helium-core.git
