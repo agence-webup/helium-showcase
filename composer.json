@@ -10,10 +10,6 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./packages/helium-ui"
-        },
-        {
-            "type": "path",
             "url": "./packages/helium-core"
         }
     ],
@@ -24,7 +20,6 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "ryangjchandler/blade-tabler-icons": "^2.0",
-        "webup/helium-ui": "dev-main",
         "webup/helium-core": "dev-main"
     },
     "require-dev": {
