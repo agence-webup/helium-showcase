@@ -2,13 +2,13 @@
 
 namespace App\Enums;
 
-enum CategoryStatus: string
+enum CategoryStatus: int
 {
-    case Published = 'published';
-    case Draft = 'draft';
-    case Deleted = 'deleted';
+    case Published = 0;
+    case Draft = 1;
+    case Deleted = 2;
 
-    public function getLabel(): string
+    public function label(): string
     {
         return match ($this) {
             self::Published => 'Published',
@@ -17,7 +17,7 @@ enum CategoryStatus: string
         };
     }
 
-    public function getColor(): string
+    public function color(): string
     {
         return match ($this) {
             self::Published => 'green',

@@ -188,9 +188,9 @@
     <div data-helium-filter-target="ui4">
         <x-hui::box>
             <x-slot:title>Datatable</x-slot:title>
-            <livewire:category-datatable sharedKey="category-datatable"
-                                         paginationSize=10
-                                         queryPrefix="c" />
+            <livewire:admin.category-datatable sharedKey="category-datatable"
+                                               paginationSize=10
+                                               queryPrefix="c" />
             {{-- <livewire:category-sidebar sharedKey="category-datatable" /> --}}
         </x-hui::box>
     </div>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('status', ['published', 'draft', 'deleted']);
+            $table->unsignedInteger('status');
             $table->boolean('highlighted');
             $table->timestamps();
         });

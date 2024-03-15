@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CategoryStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'status' => $this->faker->randomElement(['published', 'draft', 'deleted']),
+            'status' => $this->faker->randomElement(CategoryStatus::cases()),
             'highlighted' => $this->faker->boolean,
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
